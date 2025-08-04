@@ -9,8 +9,8 @@
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
-  <name>ForgeSmith Parent POM</name>
-  <description>Master project setup for Spring Boot Java apps</description>
+  <name>Jstarter Parent POM</name>
+  <description>Master project setup for Spring Boot Java apps - template maker</description>
   <url>https://your.domain/forge-parent</url>
 
   <properties>
@@ -22,10 +22,19 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+    <properties><!-- not to be mixed up with dependencies! these are docker versions -->
+        <postgres.prefix>pg</postgres.prefix>
+        <postgres.version>17.5</postgres.version>
+        <mysql.prefix>mysql</mysql.prefix>
+        <mysql.version>8.3</mysql.version>
+        <default.network.suffix>-net</default.network.suffix>
+    </properties>
+
+
     <!-- Dependency versions -->
     <jackson.version>2.17.1</jackson.version>
     <lombok.version>1.18.30</lombok.version>
-    <postgres.version>42.7.3</postgres.version>
+    <!--<postgres.version>42.7.3</postgres.version> wtf -->
   </properties>
 
   <dependencyManagement>
