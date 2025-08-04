@@ -17,9 +17,8 @@ mysql/
 ├── initdb.sql            # SQL template
 ├── .env                  # Root credentials
 ├── out/
-│   ├── cauth3-initdb.sql     # SQL file for app
-│   ├── cauth3-verify.log     # Output of database verification
-│   └── cauth3-docker-run.sh  # Ready-to-run docker command
+│   ├── cauth-initdb.sql     # SQL file for app
+│   └── cauth-docker-run.sh  # Ready-to-run docker command
 ```
 
 ## Getting Started
@@ -54,15 +53,15 @@ DB_PASSWORD=...
 ### 2. Bootstrap an App-Specific Database
 
 ```bash
-make APP=cauth3 mysql-app-bootstrap
+make APP=cauth mysql-app-bootstrap
 ```
 
 This will:
 
 - Generate `out/cauth3-initdb.sql` from `initdb.sql` template
 - Execute the SQL inside the original container
-- Verify the database and user creation (`out/cauth3-verify.log`)
-- Output a `docker run` script for a potential clone container at `out/cauth3-docker-run.sh`
+- Verify the database and user creation (`out/cauth-verify.log`)
+- Output a `docker run` script for a potential clone container at `out/cauth-docker-run.sh`
 
 ---
 
@@ -71,7 +70,7 @@ This will:
 You can run a separate container (e.g., for testing, migrations, or read-only queries) with:
 
 ```bash
-bash out/cauth3-docker-run.sh
+bash out/cauth-docker-run.sh
 ```
 
 > This container uses the same volume and network as the root instance, but only one MySQL process can safely access the volume at a time.
